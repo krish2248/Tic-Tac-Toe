@@ -8,7 +8,7 @@
   --mark-size: calc(var(--cell-size) * .9);
 }
 
-/* Light mode gradient background */
+/* General styles for light mode */
 body {
   display: flex;
   flex-direction: column;
@@ -16,16 +16,16 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(135deg, #ffffff, #d9e4f5); /* Light gradient */
+  background: #ffffff; /* Solid white background for light mode */
   color: black;
   transition: background 0.3s, color 0.3s;
   padding-top: 60px; /* Prevent overlap with header */
 }
 
-/* Dark mode gradient background */
+/* General styles for dark mode */
 body.dark-mode {
-  background: linear-gradient(135deg, #121212, #3a3a3a); /* Dark gradient */
-  color: white;
+  background: #2e2e2e; /* Grayish background for dark mode */
+  color: #e0e0e0; /* Light gray text for dark mode */
 }
 
 /* Header styles */
@@ -38,16 +38,16 @@ body.dark-mode {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #ffffff, #d9e4f5); /* Light gradient */
+  background: #f0f0f0; /* Solid light gray for light mode */
   border-bottom: 2px solid #000;
   z-index: 1000;
   color: black;
 }
 
 body.dark-mode .header {
-  background: linear-gradient(135deg, #121212, #3a3a3a); /* Dark gradient */
-  border-bottom: 2px solid #fff;
-  color: white;
+  background: #3a3a3a; /* Dark gray for dark mode */
+  border-bottom: 2px solid #e0e0e0;
+  color: #e0e0e0;
 }
 
 /* Footer styles */
@@ -56,7 +56,7 @@ body.dark-mode .header {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #ffffff, #d9e4f5); /* Light gradient */
+  background: #f0f0f0; /* Solid light gray for light mode */
   border-top: 2px solid #000;
   color: black;
   position: fixed;
@@ -66,9 +66,9 @@ body.dark-mode .header {
 }
 
 body.dark-mode .footer {
-  background: linear-gradient(135deg, #121212, #3a3a3a); /* Dark gradient */
-  border-top: 2px solid #fff;
-  color: white;
+  background: #3a3a3a; /* Dark gray for dark mode */
+  border-top: 2px solid #e0e0e0;
+  color: #e0e0e0;
 }
 
 .footer-links {
@@ -89,7 +89,7 @@ body.dark-mode .footer {
 }
 
 body.dark-mode .footer-links a {
-  color: white;
+  color: #e0e0e0;
 }
 
 body.dark-mode .footer-links a:hover {
@@ -123,7 +123,7 @@ body.dark-mode .footer-links a:hover {
   gap: 50px;
 }
 
-/* Add gradient effect to the score box */
+/* Score container */
 .score {
   display: flex;
   flex-direction: column;
@@ -133,12 +133,12 @@ body.dark-mode .footer-links a:hover {
   padding: 20px;
   border: 2px solid #000;
   border-radius: 5px;
-  background: linear-gradient(135deg, #ffffff, #d9e4f5); /* Light gradient */
+  background: #f0f0f0; /* Solid light gray for light mode */
 }
 
 body.dark-mode .score {
-  background: linear-gradient(135deg, #121212, #3a3a3a); /* Dark gradient */
-  border-color: white;
+  background: #3a3a3a; /* Dark gray for dark mode */
+  border-color: #e0e0e0;
 }
 
 /* Board styles */
@@ -158,7 +158,7 @@ body.dark-mode .score {
 }
 
 body.dark-mode .cell.x::before {
-  color: white; /* White color for X in dark mode */
+  color: #e0e0e0; /* Light gray color for X in dark mode */
 }
 
 .cell.circle::before {
@@ -169,7 +169,7 @@ body.dark-mode .cell.x::before {
 }
 
 body.dark-mode .cell.circle::before {
-  color: white; /* White color for O in dark mode */
+  color: #e0e0e0; /* Light gray color for O in dark mode */
 }
 
 /* Center the marks inside the cells */
@@ -187,7 +187,7 @@ body.dark-mode .cell.circle::before {
 }
 
 body.dark-mode .cell {
-  border-color: white;
+  border-color: #e0e0e0;
 }
 
 /* Highlight winning cells */
@@ -197,8 +197,8 @@ body.dark-mode .cell {
 }
 
 body.dark-mode .cell.winning {
-  background-color: white; /* White background for winning cells in dark mode */
-  color: black; /* Black text for X and O in dark mode */
+  background-color: #e0e0e0; /* Light gray for winning cells in dark mode */
+  color: #2e2e2e; /* Dark text for X and O in dark mode */
 }
 
 body:not(.dark-mode) .cell.winning {
@@ -220,6 +220,10 @@ body:not(.dark-mode) .cell.winning {
   font-size: 1.5rem;
   margin-top: 10px;
   color: #ff5722;
+}
+
+body.dark-mode .timer {
+  color: #ffcc00; /* Yellowish color for dark mode */
 }
 
 /* Winning message */
@@ -274,25 +278,18 @@ button {
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  transition: none; /* Remove hover transition */
-}
-
-button:hover {
-  background-color: black; /* Keep the same solid black background */
-  color: white; /* Keep the same white text */
-  border-color: black; /* Keep the same border color */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode button {
-  background-color: black; /* Solid black background in dark mode */
-  color: white; /* White text in dark mode */
-  border-color: black; /* Solid black border in dark mode */
+  background-color: #3a3a3a; /* Dark gray for dark mode */
+  color: #e0e0e0; /* Light gray text for dark mode */
+  border-color: #e0e0e0;
 }
 
 body.dark-mode button:hover {
-  background-color: black; /* Keep the same solid black background */
-  color: white; /* Keep the same white text */
-  border-color: black; /* Keep the same border color */
+  background-color: #4a4a4a; /* Slightly lighter gray on hover */
+  color: #ffffff; /* White text on hover */
 }
 
 /* Restart Button Container */
